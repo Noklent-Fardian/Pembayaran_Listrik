@@ -2,7 +2,7 @@
 
 @section('title', $pack['title']['show'].' '.$data->id.' -')
 
-
+@section('content')
     <div class="card">
         <div class="card-header card-body py-sm-3">
             <h2 class="card-title fs-3">{{$pack['title']['show']}} {{$data->id}}</h2>

@@ -48,6 +48,13 @@ class level extends Model
         }
     }
 
+        /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_level';
+
     /**
      * for validation data
      * @param bool $hasUnique for is have unique field

@@ -39,7 +39,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
- Route::namespace('App\Http\Controllers')->group(function () {
-    Route::resource('level', LevelController::class);
-    
- }); 
+
+Route::middleware(['auth'])->group(function () {
+     Route::namespace('App\Http\Controllers')->group(function () {
+        Route::resource('level', LevelController::class);
+        
+     }); 
+     
+ });

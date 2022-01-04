@@ -115,7 +115,7 @@
     <script src="{{url('js/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
     <script src="{{url('js\app.js')}}"></script>
     <script src="{{url('js/main.js')}}"></script>
-
+    @yield('js')
 </body>
 
 </html>

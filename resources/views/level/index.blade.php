@@ -50,10 +50,10 @@
                             <td>{{$item->$packItem}}</td>
                             @endforeach
                             <td>
-                                <a href="{{route($pack['route']['show'], $item)}}" class="btn bg-teal border">Show</a>
-                                <a href="{{route($pack['route']['edit'], $item)}}" class="btn bg-amber border">Edit</a>
-                                <a href="" class="btn bg-rose border" id="btn-delete-{{$item->id}}">Delete</a>
-                                <form action="{{route($pack['route']['destroy'], $item)}}" method="post" id="delete-form-{{$item->id}}">
+                                <a href="{{route($pack['route']['show'], $item->id_level)}}" class="btn bg-teal border">Show</a>
+                                <a href="{{route($pack['route']['edit'], $item->id_level)}}" class="btn bg-amber border">Edit</a>
+                                <a href="" class="btn bg-rose border" id="btn-delete-{{$item->id_level}}">Delete</a>
+                                <form action="{{route($pack['route']['destroy'], $item->id_level)}}" method="post" id="delete-form-{{$item->id_level}}">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete">
                                 </form>
@@ -73,7 +73,8 @@
 @section('js')
     @foreach ($data as $item)
     <script>
-        $('#btn-delete-{{$item->id}}').click((e) => {
+        $('#btn-delete-{{$item->id_level}}').click((e) => {
+            console.log('click');
             e.preventDefault();
             swal({
                 title: "Are you sure?",
@@ -84,7 +85,7 @@
                 })
                 .then((willDelete) => {
                 if (willDelete) {
-                    $('#delete-form-{{$item->id}}').submit();
+                    $('#delete-form-{{$item->id_level}}').submit();
                 } else {
                     swal({
                         title: "Your record is save.",
